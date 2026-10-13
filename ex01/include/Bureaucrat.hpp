@@ -25,7 +25,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	//execeptions
-	class GradeTooHightException : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 			const char *what() const noexcept override; //what = reads error message; noexcept = wont throw an exception

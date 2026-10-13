@@ -32,6 +32,11 @@ class Form{
 		public:
 			const char *what() const noexcept override;
 	};
+	class FormAlreadysigned : public std::exception
+	{
+		public:
+			const char *what() const noexcept override;
+	};
 	//other
 	void beSigned(const Bureaucrat &src);
 };

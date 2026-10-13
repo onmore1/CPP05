@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "../include/Form.hpp"
 
 Form::Form() : _name("default form"),  _signGrade(LOWEST_GRADE), _execGrade(LOWEST_GRADE), _isSigned(false)
 {
@@ -62,8 +62,15 @@ const char *Form::GradeTooLowException::what() const noexcept
 	return "Form::GradeTooLowException";
 }
 
+const char *Form::FormAlreadysigned::what() const noexcept
+{
+	return "Form::AlreadySigned";
+}
+
 void Form::beSigned(const Bureaucrat &src)
 {
+	if (this->_isSigned)
+		throw Form::FormAlreadysigned();
 	if (src.getGrade() <= this->_signGrade)
 		this->_isSigned = true;
 	else

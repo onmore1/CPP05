@@ -1,6 +1,6 @@
 NAME = ex00
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = src/main.cpp src/Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++

@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("blank name"), _grade(LOWEST_GRADE)
 {
@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat() : _name("blank name"), _grade(LOWEST_GRADE)
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
 	if (grade < HIGHEST_GRADE)
-		throw GradeTooHightException();
+		throw GradeTooHighException();
 	if (grade > LOWEST_GRADE)
 		throw GradeTooLowException();
 	std::cout << "Bureaucrat custom constructor with (name: " << name << ", grade: " << grade << ") was called" << std::endl;
@@ -34,7 +34,7 @@ Bureaucrat::~Bureaucrat()
 void Bureaucrat::incrementGrade()
 {
 	if (this->_grade - 1 < HIGHEST_GRADE)
-		throw GradeTooHightException();
+		throw GradeTooHighException();
 	this->_grade--;
 }
 
@@ -45,7 +45,7 @@ void Bureaucrat::decrementGrade()
 	this->_grade++;
 }
 
-const char *Bureaucrat::GradeTooHightException::what() const noexcept
+const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
 	return "Bureaucrat::Grade is too high";
 }

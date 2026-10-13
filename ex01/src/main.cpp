@@ -1,57 +1,60 @@
-#include "Form.hpp"
+#include "../include/Form.hpp"
 int main()
 {
 	try
 	{
 		Form testForm("test", 1, 1);
 		std::cout << testForm;
+		Bureaucrat buro("strong", 1);
+		buro.signForm(testForm);
+		std::cout << testForm.getIsSigned() << "\n";
+		buro.signForm(testForm);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("test", 160, 1);
+		Bureaucrat buro("bureaucrat", 32);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("test", -1, 1);
+		Bureaucrat buro("bureaucrat", 32);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("test", 1, 160);
+		Bureaucrat buro("bureaucrat", 32);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("test", 1, -1);
+		Bureaucrat buro("bureaucrat", 32);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm;
@@ -65,7 +68,6 @@ int main()
 		std::cout << e.what() << "\n";
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm;
@@ -76,7 +78,6 @@ int main()
 		std::cout << e.what() << "\n";
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("broken", -1, -1);
@@ -87,7 +88,6 @@ int main()
 		std::cout << e.what() << "\n";
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("testForm", 75, 75);
@@ -99,7 +99,6 @@ int main()
 		std::cout << e.what() << "\n";
 	}
 	std::cout << "-----------------\n";
-	//------------------------------------------------------------------------
 	try
 	{
 		Form testForm("testForm", 75, 75);
