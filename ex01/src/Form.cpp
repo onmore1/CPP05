@@ -81,9 +81,9 @@ std::ostream& operator<<(std::ostream& out, const Form &src)
 {
 	out << "Form: (Name: '" << src.getName() << "'; Execution grade: '" << src.getExecGrade() << "'; Sign grade: '" << src.getSignGrade() << "'; Status: '";
 	if (src.getIsSigned())
-		std::cout << "signed";
+		out << "signed";
 	else
-		std::cout << "not signed";
-	std::cout << "'" << std::endl;
+		out << "not signed";
+	out << "'" << std::endl;
 	return out;
 }

@@ -50,16 +50,13 @@ int main()
 	pForm =  intern.makeForm("presidential pardon", "someOne");
 	if (pForm)
 	{
-		pForm->executeAction();
+		high_score.signForm(*pForm);
+		high_score.executeForm(*pForm);
 		delete pForm;
 	}
 	std::cout << "TESTING INTERN(INvalid forms)----------------------------------------------------\n";
 	pForm = intern.makeForm("presidential nodrap", "bad");
-	if (pForm)
-	{
-		pForm->executeAction();
-		delete pForm;
-	}
+	delete pForm;
 	std::cout << "----------------------------------------------------\n";
 	return (0);
 }

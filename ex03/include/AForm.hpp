@@ -51,7 +51,9 @@ class AForm{
 	};
 	//other
 	void beSigned(const Bureaucrat &src);
+	protected:
 	virtual void executeAction() const = 0;
+	public:
 	void execute(Bureaucrat const &executor) const;
 };
 

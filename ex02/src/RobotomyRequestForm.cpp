@@ -37,16 +37,19 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::executeAction() const
 {
-	static bool shouldSucceed = true;
+	static bool stopper = false;
+	if (!stopper)
+	{
+		std::srand((std::time(0)));
+		stopper = true;
+	}
 	std::cout << "Brrrrrr... drilling noises..." << std::endl;
-	if (shouldSucceed)
+	if (std::rand() % 2 == 0)
 	{
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;	
-		shouldSucceed = false;
 	}
 	else
 	{
 		std::cout << "The robotomy of " << this->_target << " failed" << std::endl;
-		shouldSucceed = true;
 	}
 }
