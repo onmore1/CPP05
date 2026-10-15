@@ -109,5 +109,18 @@ int main()
 	{
 		std::cout << e.what() << "\n";
 	}
+	std::cout << "-----------------\n";
+	try
+	{
+		Bureaucrat buro;
+		Form testForm("testForm", 80, 80);
+		std::cout << testForm;
+		testForm.beSigned(buro);
+		Bureaucrat testBuro("testBuro", 1);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << "\n";
+	}
 	return (0);
 }

@@ -2,7 +2,7 @@
 
 Form::Form() : _name("default form"),  _signGrade(LOWEST_GRADE), _execGrade(LOWEST_GRADE), _isSigned(false)
 {
-	std::cout << "Form default contructor was called" << "\n";
+	std::cout << "Form default constructor was called\n";
 }
 
 Form::Form(const std::string &name, const int signGrade, const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
@@ -79,6 +79,11 @@ void Form::beSigned(const Bureaucrat &src)
 
 std::ostream& operator<<(std::ostream& out, const Form &src)
 {
-	out << "Form: " << src.getName() << ", " << src.getExecGrade() << ", " << src.getSignGrade() << ", " << src.getIsSigned() << std::endl;
+	out << "Form: (Name: '" << src.getName() << "'; Execution grade: '" << src.getExecGrade() << "'; Sign grade: '" << src.getSignGrade() << "'; Status: '";
+	if (src.getIsSigned())
+		std::cout << "signed";
+	else
+		std::cout << "not signed";
+	std::cout << "'" << std::endl;
 	return out;
 }
